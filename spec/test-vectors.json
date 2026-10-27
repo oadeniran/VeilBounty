@@ -1,0 +1,1973 @@
+{
+ "note": "Golden vectors. Regenerate with `npm run vectors`; test/parity.test.js re-derives every root in Noir.",
+ "holder_secret": "0x0000000000000000000000000000000000000000000000001234567890abcdef",
+ "holder_commitment": "0x1e50cb8b66c8bfe9df784607815ac93a46b7cdc4341663111dbc707660ff60f6",
+ "campaign_id": "0x0000000000000000000000000000000000000000000000000000000000000309",
+ "nullifier": "0x1c7d6a4f0922373f86a1b918bc8f87e9700770974f0d26b500b029b9dba1e85a",
+ "recipient_address": "utest1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq",
+ "recipient_hash": "0x00a5f8b20ad31390858d503001839eb9254b0702c7299a6c26ee538b8c21aebc",
+ "vectors": [
+  {
+   "name": "valid",
+   "blind": "0x0000000000000000000000000000000000000000000000000fedcba987654321",
+   "rows": [
+    {
+     "amount": 6420,
+     "category": 3,
+     "day": 214
+    },
+    {
+     "amount": 4175,
+     "category": 3,
+     "day": 225
+    },
+    {
+     "amount": 2310,
+     "category": 4,
+     "day": 240
+    },
+    {
+     "amount": 5240,
+     "category": 3,
+     "day": 243
+    },
+    {
+     "amount": 1200,
+     "category": 2,
+     "day": 244
+    },
+    {
+     "amount": 3895,
+     "category": 3,
+     "day": 247
+    },
+    {
+     "amount": 1860,
+     "category": 4,
+     "day": 251
+    },
+    {
+     "amount": 7130,
+     "category": 3,
+     "day": 254
+    },
+    {
+     "amount": 2245,
+     "category": 7,
+     "day": 257
+    },
+    {
+     "amount": 2980,
+     "category": 3,
+     "day": 260
+    },
+    {
+     "amount": 1500,
+     "category": 6,
+     "day": 263
+    },
+    {
+     "amount": 6415,
+     "category": 3,
+     "day": 266
+    },
+    {
+     "amount": 3120,
+     "category": 4,
+     "day": 269
+    },
+    {
+     "amount": 9125,
+     "category": 3,
+     "day": 272
+    },
+    {
+     "amount": 4760,
+     "category": 3,
+     "day": 274
+    },
+    {
+     "amount": 4000,
+     "category": 5,
+     "day": 278
+    },
+    {
+     "amount": 5810,
+     "category": 3,
+     "day": 283
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    }
+   ],
+   "root": "0x2702177cbbe89ca8c3425bad795204b7576b31d51778003d7b925203140ee6f9"
+  },
+  {
+   "name": "row_order_swapped",
+   "blind": "0x0000000000000000000000000000000000000000000000000fedcba987654321",
+   "rows": [
+    {
+     "amount": 4175,
+     "category": 3,
+     "day": 225
+    },
+    {
+     "amount": 6420,
+     "category": 3,
+     "day": 214
+    },
+    {
+     "amount": 2310,
+     "category": 4,
+     "day": 240
+    },
+    {
+     "amount": 5240,
+     "category": 3,
+     "day": 243
+    },
+    {
+     "amount": 1200,
+     "category": 2,
+     "day": 244
+    },
+    {
+     "amount": 3895,
+     "category": 3,
+     "day": 247
+    },
+    {
+     "amount": 1860,
+     "category": 4,
+     "day": 251
+    },
+    {
+     "amount": 7130,
+     "category": 3,
+     "day": 254
+    },
+    {
+     "amount": 2245,
+     "category": 7,
+     "day": 257
+    },
+    {
+     "amount": 2980,
+     "category": 3,
+     "day": 260
+    },
+    {
+     "amount": 1500,
+     "category": 6,
+     "day": 263
+    },
+    {
+     "amount": 6415,
+     "category": 3,
+     "day": 266
+    },
+    {
+     "amount": 3120,
+     "category": 4,
+     "day": 269
+    },
+    {
+     "amount": 9125,
+     "category": 3,
+     "day": 272
+    },
+    {
+     "amount": 4760,
+     "category": 3,
+     "day": 274
+    },
+    {
+     "amount": 4000,
+     "category": 5,
+     "day": 278
+    },
+    {
+     "amount": 5810,
+     "category": 3,
+     "day": 283
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    }
+   ],
+   "root": "0x0f8f5db7a879369c48395255d2e2427117f72483eafdde413d60ea7d071918d2"
+  },
+  {
+   "name": "amount_changed",
+   "blind": "0x0000000000000000000000000000000000000000000000000fedcba987654321",
+   "rows": [
+    {
+     "amount": 6420,
+     "category": 3,
+     "day": 214
+    },
+    {
+     "amount": 4175,
+     "category": 3,
+     "day": 225
+    },
+    {
+     "amount": 2310,
+     "category": 4,
+     "day": 240
+    },
+    {
+     "amount": 5241,
+     "category": 3,
+     "day": 243
+    },
+    {
+     "amount": 1200,
+     "category": 2,
+     "day": 244
+    },
+    {
+     "amount": 3895,
+     "category": 3,
+     "day": 247
+    },
+    {
+     "amount": 1860,
+     "category": 4,
+     "day": 251
+    },
+    {
+     "amount": 7130,
+     "category": 3,
+     "day": 254
+    },
+    {
+     "amount": 2245,
+     "category": 7,
+     "day": 257
+    },
+    {
+     "amount": 2980,
+     "category": 3,
+     "day": 260
+    },
+    {
+     "amount": 1500,
+     "category": 6,
+     "day": 263
+    },
+    {
+     "amount": 6415,
+     "category": 3,
+     "day": 266
+    },
+    {
+     "amount": 3120,
+     "category": 4,
+     "day": 269
+    },
+    {
+     "amount": 9125,
+     "category": 3,
+     "day": 272
+    },
+    {
+     "amount": 4760,
+     "category": 3,
+     "day": 274
+    },
+    {
+     "amount": 4000,
+     "category": 5,
+     "day": 278
+    },
+    {
+     "amount": 5810,
+     "category": 3,
+     "day": 283
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    }
+   ],
+   "root": "0x0bd0b4d0b299e2fd57eea1ef72f7f7b2e29f5e7d18a710e44e537d0c624bacd8"
+  },
+  {
+   "name": "category_changed",
+   "blind": "0x0000000000000000000000000000000000000000000000000fedcba987654321",
+   "rows": [
+    {
+     "amount": 6420,
+     "category": 3,
+     "day": 214
+    },
+    {
+     "amount": 4175,
+     "category": 3,
+     "day": 225
+    },
+    {
+     "amount": 2310,
+     "category": 4,
+     "day": 240
+    },
+    {
+     "amount": 5240,
+     "category": 4,
+     "day": 243
+    },
+    {
+     "amount": 1200,
+     "category": 2,
+     "day": 244
+    },
+    {
+     "amount": 3895,
+     "category": 3,
+     "day": 247
+    },
+    {
+     "amount": 1860,
+     "category": 4,
+     "day": 251
+    },
+    {
+     "amount": 7130,
+     "category": 3,
+     "day": 254
+    },
+    {
+     "amount": 2245,
+     "category": 7,
+     "day": 257
+    },
+    {
+     "amount": 2980,
+     "category": 3,
+     "day": 260
+    },
+    {
+     "amount": 1500,
+     "category": 6,
+     "day": 263
+    },
+    {
+     "amount": 6415,
+     "category": 3,
+     "day": 266
+    },
+    {
+     "amount": 3120,
+     "category": 4,
+     "day": 269
+    },
+    {
+     "amount": 9125,
+     "category": 3,
+     "day": 272
+    },
+    {
+     "amount": 4760,
+     "category": 3,
+     "day": 274
+    },
+    {
+     "amount": 4000,
+     "category": 5,
+     "day": 278
+    },
+    {
+     "amount": 5810,
+     "category": 3,
+     "day": 283
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    }
+   ],
+   "root": "0x00e1b9da64e648d7293477d5ad8d889fd9565128e2997521b13e37eb7e2f1e8e"
+  },
+  {
+   "name": "date_changed",
+   "blind": "0x0000000000000000000000000000000000000000000000000fedcba987654321",
+   "rows": [
+    {
+     "amount": 6420,
+     "category": 3,
+     "day": 214
+    },
+    {
+     "amount": 4175,
+     "category": 3,
+     "day": 225
+    },
+    {
+     "amount": 2310,
+     "category": 4,
+     "day": 240
+    },
+    {
+     "amount": 5240,
+     "category": 3,
+     "day": 244
+    },
+    {
+     "amount": 1200,
+     "category": 2,
+     "day": 244
+    },
+    {
+     "amount": 3895,
+     "category": 3,
+     "day": 247
+    },
+    {
+     "amount": 1860,
+     "category": 4,
+     "day": 251
+    },
+    {
+     "amount": 7130,
+     "category": 3,
+     "day": 254
+    },
+    {
+     "amount": 2245,
+     "category": 7,
+     "day": 257
+    },
+    {
+     "amount": 2980,
+     "category": 3,
+     "day": 260
+    },
+    {
+     "amount": 1500,
+     "category": 6,
+     "day": 263
+    },
+    {
+     "amount": 6415,
+     "category": 3,
+     "day": 266
+    },
+    {
+     "amount": 3120,
+     "category": 4,
+     "day": 269
+    },
+    {
+     "amount": 9125,
+     "category": 3,
+     "day": 272
+    },
+    {
+     "amount": 4760,
+     "category": 3,
+     "day": 274
+    },
+    {
+     "amount": 4000,
+     "category": 5,
+     "day": 278
+    },
+    {
+     "amount": 5810,
+     "category": 3,
+     "day": 283
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    }
+   ],
+   "root": "0x0bf5b45a48f9f532bc9a51f6cb056474da2856fb555074fd22fec03b979d5758"
+  },
+  {
+   "name": "blind_changed",
+   "blind": "0x0000000000000000000000000000000000000000000000000fedcba987654322",
+   "rows": [
+    {
+     "amount": 6420,
+     "category": 3,
+     "day": 214
+    },
+    {
+     "amount": 4175,
+     "category": 3,
+     "day": 225
+    },
+    {
+     "amount": 2310,
+     "category": 4,
+     "day": 240
+    },
+    {
+     "amount": 5240,
+     "category": 3,
+     "day": 243
+    },
+    {
+     "amount": 1200,
+     "category": 2,
+     "day": 244
+    },
+    {
+     "amount": 3895,
+     "category": 3,
+     "day": 247
+    },
+    {
+     "amount": 1860,
+     "category": 4,
+     "day": 251
+    },
+    {
+     "amount": 7130,
+     "category": 3,
+     "day": 254
+    },
+    {
+     "amount": 2245,
+     "category": 7,
+     "day": 257
+    },
+    {
+     "amount": 2980,
+     "category": 3,
+     "day": 260
+    },
+    {
+     "amount": 1500,
+     "category": 6,
+     "day": 263
+    },
+    {
+     "amount": 6415,
+     "category": 3,
+     "day": 266
+    },
+    {
+     "amount": 3120,
+     "category": 4,
+     "day": 269
+    },
+    {
+     "amount": 9125,
+     "category": 3,
+     "day": 272
+    },
+    {
+     "amount": 4760,
+     "category": 3,
+     "day": 274
+    },
+    {
+     "amount": 4000,
+     "category": 5,
+     "day": 278
+    },
+    {
+     "amount": 5810,
+     "category": 3,
+     "day": 283
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    },
+    {
+     "amount": 0,
+     "category": 0,
+     "day": 0
+    }
+   ],
+   "root": "0x220ffa044da17bdd2142155a1275818ad3f1e301546ccef1fbc032d8cbb3019b"
+  }
+ ]
+}

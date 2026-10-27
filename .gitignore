@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.data/
+.env
+*.key
+circuits/*/target/*.gz
+test-results/
+playwright-report/
+web/public/crs/
+web/public/bb/

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>VeilBounty demo · prove it without showing it</title>
+  <meta name="description" content="Prove a private spending fact with a zero-knowledge proof made in your browser. Synthetic data, Zcash testnet.">
+  <meta name="theme-color" content="#f7f8fc">
+  <link rel="icon" type="image/png" href="/brand/vb-mark.png">
+</head>
+<body class="vx-page app" data-view="claim">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="vx-top app-top">
+    <a class="vx-top__brand" href="/" aria-label="VeilBounty home"><img src="/brand/vb-wordmark-pearl.png" alt="" width="134" height="26"></a>
+    <nav class="app-nav" aria-label="Sections">
+      <div class="vx-sections">
+        <a href="#claim" data-nav="claim" data-testid="nav-claim" aria-current="page">Claim</a>
+        <a href="#lab" data-nav="lab" data-testid="nav-lab">Security lab</a>
+        <a href="#history" data-nav="history" data-testid="nav-history">History</a>
+      </div>
+    </nav>
+    <div class="app-top__end">
+      <div class="vx-localchip" id="local-chip" role="status" data-testid="local-chip"><span class="vx-dot" aria-hidden="true"></span><span><b class="chip__k">On this device</b><span class="chip__sep"> · </span>0 B<span class="chip__long"> of records</span> sent</span></div>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="app-menu">
+        <svg class="vb-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg><span>Menu</span>
+      </button>
+    </div>
+    <div class="app-menu vb-surface vb-surface--float" id="app-menu" hidden>
+      <a href="#claim" data-nav="claim" aria-current="page">Claim</a>
+      <a href="#lab" data-nav="lab">Security lab</a>
+      <a href="#history" data-nav="history">History</a>
+      <a href="/">About VeilBounty</a>
+    </div>
+  </header>
+
+  <main id="main" class="vx-wrap app-main" tabindex="-1">
+    <section id="view-claim" class="view" aria-label="Claim">
+      <div class="boot-loading" role="status"><span class="vb-spinner" aria-hidden="true"></span>Loading campaign…</div>
+    </section>
+    <section id="view-lab" class="view" aria-label="Security lab" hidden></section>
+    <section id="view-history" class="view" aria-label="History" hidden></section>
+  </main>
+
+  <footer class="app-foot vx-wrap">
+    <p class="text-body-sm vx-muted">Prototype limits: Mock Grocer and its records are synthetic. The operator runs the verifier and controls payouts; nothing here is trustless. Your credential's commitment is visible to the verifier, so two claims from one statement can be linked. Network-level privacy (your IP address) is not provided.</p>
+  </footer>
+  <script type="module" src="/src/app/main.js"></script>
+</body>
+</html>

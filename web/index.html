@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>VeilBounty · verified answers, private records</title>
+  <meta name="description" content="Prove what matters about your data without handing over the records. A Zecathon prototype: zero-knowledge proofs in the browser, shielded Zcash testnet rewards.">
+  <meta name="theme-color" content="#f7f8fc">
+  <link rel="icon" type="image/png" href="/brand/vb-mark.png">
+</head>
+<body>
+<a class="hp-skip" href="#top">Skip to content</a>
+<div class="hp">
+  <span class="hp-blob hp-blob--v hp-blob--1"></span>
+  <span class="hp-blob hp-blob--b hp-blob--2"></span>
+  <span class="hp-blob hp-blob--l hp-blob--3"></span>
+  <span class="hp-blob hp-blob--v hp-blob--4"></span>
+  <span class="hp-blob hp-blob--b hp-blob--5"></span>
+  <span class="hp-blob hp-blob--v hp-blob--6"></span>
+
+  <header class="hp-nav">
+    <a class="hp-nav__brand" href="#top" aria-label="VeilBounty home"><img src="/brand/vb-wordmark-pearl.png" alt="" width="134" height="26"></a>
+    <nav aria-label="Primary"><div class="hp-nav__links"><a href="#how">How it works</a><a href="#privacy">Privacy</a><a href="#buyers">For buyers</a><a href="#faq">FAQ</a></div></nav>
+    <div class="hp-nav__end">
+      <a class="hp-btn hp-btn--primary hp-btn--sm" href="/demo" data-testid="home-demo">Explore the demo</a>
+      <button type="button" class="hp-nav__menu" id="hp-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="hp-menu"><svg class="hp-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"></path></svg></button>
+    </div>
+    <div class="hp-menu" id="hp-menu" hidden>
+      <a href="#how">How it works</a><a href="#privacy">Privacy</a><a href="#buyers">For buyers</a><a href="#faq">FAQ</a><a href="/demo">Explore the demo</a>
+    </div>
+  </header>
+
+  <main>
+  <section class="hp-sec hp-wrap" id="top" aria-labelledby="hp-h1" tabindex="-1">
+    <div class="hp-hero" id="hp-hero">
+      <div class="hp-hero__copy">
+        <div class="hp-hero__eyebrows">
+          <span class="hp-eyebrow">Privacy-first data compensation</span>
+          <span class="hp-status"><i aria-hidden="true"></i>Interactive prototype · testnet</span>
+        </div>
+        <h1 id="hp-h1" class="hp-display">Your data stays yours.<em>Your answers have value.</em></h1>
+        <p class="hp-lead">Prove what matters about your data without handing over the underlying records. VeilBounty lets participants demonstrate eligibility privately, approve what they disclose, and take part in reward-based data campaigns.</p>
+        <div class="hp-hero__ctas">
+          <a class="hp-btn hp-btn--primary" href="/demo">Explore the demo<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+          <a class="hp-btn hp-btn--glass" href="#how">How it works</a>
+        </div>
+        <p class="hp-tagline">Verified Answers. Real Rewards.</p>
+      </div>
+      <div class="hp-hero__visual" aria-hidden="true">
+        <span class="hp-orbit hp-orbit--a"></span>
+        <span class="hp-orbit hp-orbit--b"></span>
+        <span class="hp-lens hp-lens--hero"></span>
+        <div class="vx-float hp-hero__mark">
+          <div class="vx-halo"></div>
+          <div class="vx-mark" data-stage="intro" id="hp-mark"><img class="vx-mark__img" src="/brand/vb-mark.png" alt="" width="552" height="362"><span class="vx-mark__gloss"></span><span class="vx-mark__fold"></span><span class="vx-mark__veil"></span><span class="vx-mark__flow"></span><span class="vx-mark__sheen"></span></div>
+        </div>
+        <div class="hp-floatchip hp-lg hp-floatchip--buyer">
+          <span class="hp-ico-bub"><svg class="vb-icon" viewBox="0 0 24 24"><path d="M12 3l7.5 3v5.6c0 4.6-3.2 8.2-7.5 9.4-4.3-1.2-7.5-4.8-7.5-9.4V6L12 3zM8.8 12.2l2.2 2.2 4.2-4.4"></path></svg></span>
+          <span><span class="k">Buyer learns</span><b>Qualifies: yes</b></span>
+        </div>
+        <div class="hp-floatchip hp-lg hp-floatchip--reward">
+          <span class="hp-coin"><svg class="vb-icon" viewBox="0 0 24 24"><path d="M12 20.5a8.5 8.5 0 100-17 8.5 8.5 0 000 17zM9 9.5h6l-6 5h6M12 7.5v2M12 14.5v2"></path></svg></span>
+          <span><span class="k">Demo reward · testnet</span><b data-bind="reward">0.001 TAZ</b></span>
+        </div>
+        <div class="hp-floatchip hp-lg hp-floatchip--device">
+          <span class="hp-ico-bub"><svg class="vb-icon" viewBox="0 0 24 24"><path d="M3 3l18 18M10.6 5.6A9.6 9.6 0 0112 5.5c6 0 9.5 6.5 9.5 6.5a16 16 0 01-3 3.8M6.6 6.7C4 8.4 2.5 12 2.5 12S6 18.5 12 18.5c1.8 0 3.4-.6 4.7-1.4M9.9 9.9a2.8 2.8 0 004 4"></path></svg></span>
+          <span><span class="k">Stays on your device</span><b>Every transaction row</b></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="hp-wave hp-sec" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 80 C 240 20, 480 20, 720 60 S 1200 110, 1440 40" fill="none" stroke="rgba(90,47,245,.18)" stroke-width="1.5"></path></svg>
+
+  <section class="hp-sec hp-wrap hp-problem" aria-labelledby="hp-problem">
+    <div class="hp-problem__grid">
+      <h2 id="hp-problem" class="hp-h2">Proving something about yourself shouldn't mean <em>revealing everything</em> about yourself.</h2>
+      <div class="hp-contrast">
+        <span class="hp-tag hp-tag--quiet">The usual way</span>
+        <p class="hp-small">A company asks for evidence. You upload your raw statements. They now hold every purchase, merchant and total — far more than the yes or no they needed.</p>
+      </div>
+    </div>
+    <div class="hp-resolve">
+      <div class="hp-rows hp-lg" role="img" aria-label="Your September records, processed locally">
+        <span class="hp-eyebrow hp-rows__k">Your records · on your device</span>
+        <div class="hp-row" aria-hidden="true"><span>2026-09-01</span><span>groceries</span><span>52.40</span></div>
+        <div class="hp-row" aria-hidden="true"><span>2026-09-05</span><span>groceries</span><span>38.95</span></div>
+        <div class="hp-row" aria-hidden="true"><span>2026-09-09</span><span>dining</span><span>18.60</span></div>
+        <div class="hp-row" aria-hidden="true"><span>2026-09-12</span><span>groceries</span><span>71.30</span></div>
+        <div class="hp-row" aria-hidden="true"><span>2026-09-18</span><span>groceries</span><span>29.80</span></div>
+        <div class="hp-row" aria-hidden="true"><span>2026-09-24</span><span>groceries</span><span>64.15</span></div>
+        <div class="hp-row" aria-hidden="true"><span>2026-09-30</span><span>groceries</span><span>91.25</span></div>
+      </div>
+      <div class="hp-resolve__mid">
+        <div class="hp-resolve__mark" aria-hidden="true"><div class="vx-halo"></div><div class="vx-mark" data-stage="proving"><img class="vx-mark__img" src="/brand/vb-mark.png" alt="" width="552" height="362"><span class="vx-mark__gloss"></span><span class="vx-mark__fold"></span><span class="vx-mark__veil"></span><span class="vx-mark__flow"></span><span class="vx-mark__sheen"></span></div></div>
+        <span class="hp-tag hp-tag--lav">Zero-knowledge proof, made locally</span>
+      </div>
+      <div class="hp-claim hp-lg">
+        <span class="hp-eyebrow">The only answer submitted</span>
+        <p class="hp-claim__a">Qualifies: <span class="hp-v">yes</span></p>
+        <p class="hp-small">Grocery spend in September was between $200 and $500. Not which rows, not the total.</p>
+      </div>
+    </div>
+    <ol class="hp-steps" aria-label="The VeilBounty way">
+      <li class="hp-small"><span class="hp-tag hp-tag--lav">1</span>A campaign states one requirement</li>
+      <li class="hp-small"><span class="hp-tag hp-tag--lav">2</span>Your device processes the records</li>
+      <li class="hp-small"><span class="hp-tag hp-tag--lav">3</span>A proof shows you're eligible</li>
+      <li class="hp-small"><span class="hp-tag hp-tag--lav">4</span>Only the approved claim is submitted</li>
+    </ol>
+    <p class="hp-small hp-center-note">The proof limits what the answer reveals. It does not hide your network address, and a buyer could still combine answers from several campaigns.</p>
+  </section>
+
+  <section class="hp-sec hp-wrap hp-sec--pad" id="how" aria-labelledby="hp-how">
+    <div class="hp-sec-head">
+      <div class="hp-sec-head__text">
+        <span class="hp-eyebrow">How it works</span>
+        <h2 id="hp-how" class="hp-h2">Three steps from a private statement to a verified answer.</h2>
+      </div>
+      <a class="hp-link" href="/demo">Walk through it in the demo<svg class="hp-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+    <div class="hp-path">
+      <svg class="hp-ribbon" viewBox="0 0 1104 520" preserveAspectRatio="none" aria-hidden="true">
+        <defs><linearGradient id="hp-rg" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#5A2FF5" stop-opacity=".15"></stop><stop offset=".5" stop-color="#5A2FF5" stop-opacity=".55"></stop><stop offset="1" stop-color="#5B7CFF" stop-opacity=".25"></stop></linearGradient></defs>
+        <path d="M40 150 C 260 150, 300 420, 560 400 S 860 120, 1080 140" fill="none" stroke="url(#hp-rg)" stroke-width="34" stroke-linecap="round"></path>
+        <path d="M40 150 C 260 150, 300 420, 560 400 S 860 120, 1080 140" fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2" stroke-linecap="round"></path>
+      </svg>
+      <ol class="hp-steps-ol">
+        <li class="hp-station hp-lg hp-station--1">
+          <span class="hp-station__n">1</span>
+          <h3 class="text-subheading">Connect your statement</h3>
+          <p class="hp-body">Start with a signed statement from the demo merchant. Your underlying transaction records remain on your device.</p>
+          <span class="hp-tag hp-tag--quiet">Mock Grocer · synthetic data</span>
+        </li>
+        <li class="hp-station hp-lg hp-station--2">
+          <span class="hp-station__n">2</span>
+          <h3 class="text-subheading">Prove what matters</h3>
+          <p class="hp-body">Demonstrate that your records satisfy a campaign's requirements without sending the raw transaction history or exact spending total to the verifier.</p>
+          <span class="hp-tag hp-tag--lav">Runs in your browser</span>
+        </li>
+        <li class="hp-station hp-lg hp-station--3">
+          <span class="hp-station__n">3</span>
+          <h3 class="text-subheading">Approve and receive your reward</h3>
+          <p class="hp-body">You decide what answer to share. The application verifies the claim and displays the configured reward or the actual payment status.</p>
+          <span class="hp-tag hp-tag--warn" data-bind="payout-tag">Payout simulated in this build</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="hp-sec hp-wrap hp-sec--pad" id="privacy" aria-labelledby="hp-priv">
+    <div class="hp-sec-head__text hp-sec-head__text--wide">
+      <span class="hp-eyebrow">What stays private</span>
+      <h2 id="hp-priv" class="hp-h2">Prove the answer. <em>Keep the records.</em></h2>
+      <p class="hp-lead">Three parties, three different views. Your device does the private work; the verifier checks the claim off-chain; the buyer receives only the answer you approved.</p>
+    </div>
+    <div class="hp-arch">
+      <div class="hp-zone hp-zone--device">
+        <span class="hp-zone__k"><svg class="vb-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 015.5 4h13A1.5 1.5 0 0120 5.5v9a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 014 14.5v-9zM9 20h6M12 16v4"></path></svg>Stays on your device</span>
+        <ul>
+          <li class="hp-item"><svg class="vb-icon vb-icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10.5V8a5 5 0 0110 0v2.5M5.5 10.5h13a1 1 0 011 1v8a1 1 0 01-1 1h-13a1 1 0 01-1-1v-8a1 1 0 011-1z"></path></svg>Raw transaction CSV</li>
+          <li class="hp-item"><svg class="vb-icon vb-icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10.5V8a5 5 0 0110 0v2.5M5.5 10.5h13a1 1 0 011 1v8a1 1 0 01-1 1h-13a1 1 0 01-1-1v-8a1 1 0 011-1z"></path></svg>Private witness values</li>
+          <li class="hp-item"><svg class="vb-icon vb-icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10.5V8a5 5 0 0110 0v2.5M5.5 10.5h13a1 1 0 011 1v8a1 1 0 01-1 1h-13a1 1 0 01-1-1v-8a1 1 0 011-1z"></path></svg>The issuer's blinding value</li>
+          <li class="hp-item"><svg class="vb-icon vb-icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10.5V8a5 5 0 0110 0v2.5M5.5 10.5h13a1 1 0 011 1v8a1 1 0 01-1 1h-13a1 1 0 01-1-1v-8a1 1 0 011-1z"></path></svg>Your exact spending total</li>
+        </ul>
+        <p class="hp-small hp-zone__foot">Mock Grocer receives one thing from you: a commitment to a key your browser creates, so it can issue the signed credential.</p>
+      </div>
+      <div class="hp-arrow" aria-hidden="true"><svg viewBox="0 0 56 24"><path d="M2 12 C 18 2, 34 22, 50 12 M44 6l6 6-6 6"></path></svg></div>
+      <div class="hp-zone hp-tech hp-zone--verifier">
+        <span class="hp-zone__k"><svg class="vb-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7.5 3v5.6c0 4.6-3.2 8.2-7.5 9.4-4.3-1.2-7.5-4.8-7.5-9.4V6L12 3zM8.8 12.2l2.2 2.2 4.2-4.4"></path></svg>Used by the verifier</span>
+        <ul>
+          <li class="hp-item"><svg class="vb-icon vb-icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3.5H7A1.5 1.5 0 005.5 5v14A1.5 1.5 0 007 20.5h10a1.5 1.5 0 001.5-1.5V8L14 3.5zM14 3.5V8h4.5M9 13h6M9 16.5h4"></path></svg>Signed credential</li>
+          <li class="hp-item"><svg class="vb-icon vb-icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 9.5a4 4 0 11-8 0 4 4 0 018 0zM13.4 12.4L20 19M17 16l2-2M18.8 17.8l1.6-1.6"></path></svg>Zero-knowledge proof</li>
+          <li class="hp-item"><svg class="vb-icon vb-icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 11v6M12 7.6v.01M12 21a9 9 0 100-18 9 9 0 000 18z"></path></svg>Public campaign parameters</li>
+          <li class="hp-item"><svg class="vb-icon vb-icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Consent receipt</li>
+          <li class="hp-item"><svg class="vb-icon vb-icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 12a7.5 7.5 0 11-2.2-5.3M19.5 4.5v4h-4"></path></svg>One-time claim tag (replay protection)</li>
+          <li class="hp-item"><svg class="vb-icon vb-icon-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5A2.5 2.5 0 016.5 5H18v3M4 7.5v10A2.5 2.5 0 006.5 20H20v-12H6.5A2.5 2.5 0 014 7.5zM16 14.2v.01"></path></svg>Your payout address</li>
+        </ul>
+        <p class="hp-small hp-zone__foot"><strong class="hp-limit">Current limit:</strong> the credential root is visible to the verifier, so two claims from one statement can be linked.</p>
+      </div>
+      <div class="hp-arrow" aria-hidden="true"><svg viewBox="0 0 56 24"><path d="M2 12 C 18 2, 34 22, 50 12 M44 6l6 6-6 6"></path></svg></div>
+      <div class="hp-zone hp-lg hp-zone--buyer">
+        <span class="hp-zone__k"><svg class="vb-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12zM12 14.8a2.8 2.8 0 100-5.6 2.8 2.8 0 000 5.6z"></path></svg>Shared with the buyer</span>
+        <p class="hp-answer">Qualifies: <span class="hp-v">yes</span></p>
+        <p class="hp-small">The approved, verified result. Nothing from your statement.</p>
+      </div>
+    </div>
+    <div class="hp-sec-foot">
+      <p class="hp-small">VeilBounty is not anonymous or trustless: an operator runs the verifier and controls payouts, and your IP address is visible to the services you contact.</p>
+      <a class="hp-link" href="/demo#history">See the privacy audit in the demo<svg class="hp-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+  </section>
+
+  <section class="hp-sec hp-wrap hp-sec--pad-lg" id="buyers" aria-labelledby="hp-buyers">
+    <div class="hp-center-head">
+      <span class="hp-eyebrow">For buyers · a live campaign example</span>
+      <h2 id="hp-buyers" class="hp-h2">Ask one question. <em>Get one verified answer.</em></h2>
+      <p class="hp-lead">Buyers publish a campaign with a single rule, a purpose and a reward. They receive counted, verified answers — never the records behind them.</p>
+    </div>
+    <article class="hp-camp hp-lg" aria-labelledby="hp-camp-t">
+      <div class="hp-camp__reward">
+        <span class="hp-coin"><svg class="vb-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5a8.5 8.5 0 100-17 8.5 8.5 0 000 17zM9 9.5h6l-6 5h6M12 7.5v2M12 14.5v2"></path></svg></span>
+        <span><span class="hp-camp__reward-k">Reward per verified yes</span><span class="hp-camp__reward-v" data-bind="reward">0.001 TAZ</span><span class="hp-camp__reward-n">testnet ZEC equivalent</span></span>
+      </div>
+      <div class="hp-camp__tags"><span class="hp-tag hp-tag--warn">Demonstration · synthetic data</span><span class="hp-tag hp-tag--quiet" data-bind="title-tag">Grocery spending · September 2026</span></div>
+      <p class="hp-eyebrow hp-camp__ask"><span data-bind="buyer">Harbor Research Co. (demo buyer)</span> asks</p>
+      <h3 id="hp-camp-t" class="hp-camp__q" data-bind="question">“Did this participant spend between $200 and $500 on groceries during September?”</h3>
+      <svg class="vx-curve" viewBox="0 0 600 28" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 C 140 20, 180 6, 300 6 S 470 22, 600 10"></path></svg>
+      <dl class="hp-facts">
+        <div><dt>Purpose</dt><dd data-bind="purpose">Size the mid-spend grocery segment for a loyalty-card trial</dd></div>
+        <div><dt>Disclosure</dt><dd>Whether the participant qualifies — yes or no</dd></div>
+        <div><dt>Issuer</dt><dd>Mock Grocer (synthetic, signed statements)</dd></div>
+        <div><dt>Retention</dt><dd data-bind="retention">90 days, no resale — campaign terms</dd></div>
+      </dl>
+      <div class="hp-camp__foot">
+        <div class="hp-camp__live" role="status" aria-live="polite">
+          <p class="hp-small">This is the campaign the demo runs end to end.</p>
+          <p class="hp-small" data-bind="live" hidden></p>
+        </div>
+        <a class="hp-btn hp-btn--primary" href="/demo">Open this campaign<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </div>
+    </article>
+  </section>
+
+  <section class="hp-sec hp-wrap hp-sec--pad-lg" id="zcash" aria-labelledby="hp-zec">
+    <div class="hp-zec-head">
+      <div>
+        <span class="hp-eyebrow">Why Zcash</span>
+        <h2 id="hp-zec" class="hp-h2">Privacy should extend to <em>the payment.</em></h2>
+      </div>
+      <p class="hp-lead">When someone is rewarded for proving a private fact, the payment itself can reveal information. VeilBounty explores shielded Zcash settlement so that paying for a verified claim does not unnecessarily disclose who qualified.</p>
+    </div>
+    <ol class="hp-rail">
+      <li class="hp-node">
+        <span class="hp-node__dot hp-lg"><svg class="vb-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 015.5 4h13A1.5 1.5 0 0120 5.5v9a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 014 14.5v-9zM9 20h6M12 16v4"></path></svg></span>
+        <div><span class="hp-eyebrow">1 · Your device</span>
+        <h3 class="text-subheading">Private data processing</h3>
+        <p class="hp-body">Records are read and proved in your browser.</p></div>
+      </li>
+      <li class="hp-node">
+        <span class="hp-node__dot hp-lg"><svg class="vb-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7.5 3v5.6c0 4.6-3.2 8.2-7.5 9.4-4.3-1.2-7.5-4.8-7.5-9.4V6L12 3zM8.8 12.2l2.2 2.2 4.2-4.4"></path></svg></span>
+        <div><span class="hp-eyebrow">2 · Operator's verifier</span>
+        <h3 class="text-subheading">Off-chain claim verification</h3>
+        <p class="hp-body">Signature, proof, consent and payout binding are checked by the verifier — not by Zcash.</p></div>
+      </li>
+      <li class="hp-node">
+        <span class="hp-node__dot hp-lg hp-node__dot--navy"><svg class="vb-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7.5 3v5.6c0 4.6-3.2 8.2-7.5 9.4-4.3-1.2-7.5-4.8-7.5-9.4V6L12 3z"></path></svg></span>
+        <div><span class="hp-eyebrow">3 · Zcash testnet</span>
+        <h3 class="text-subheading">Shielded payment</h3>
+        <p class="hp-body">The reward is meant to settle to a shielded address.</p>
+        <span class="hp-tag hp-tag--warn" data-bind="payout-rail">Simulated by default · no transaction sent</span></div>
+      </li>
+    </ol>
+    <p class="hp-small hp-zec-note">Zcash does not verify the proof and is not an escrow here: the operator holds campaign funds and decides when to pay. In manual mode the operator sends TAZ from their own wallet and reports the transaction id, which the app shows as reported, not confirmed.</p>
+  </section>
+
+  <section class="hp-sec hp-wrap hp-sec--pad-lg" aria-labelledby="hp-ctl">
+    <div class="hp-control">
+      <div class="hp-control__copy">
+        <span class="hp-eyebrow">Designed around consent</span>
+        <h2 id="hp-ctl" class="hp-h2">Your participation. <em>Your decision.</em></h2>
+        <p class="hp-lead">Review the campaign's purpose, understand the requested disclosure, and approve the claim before submission.</p>
+        <p class="hp-small">Withdrawing stops future use under the campaign terms, but cannot recall an answer already delivered to a buyer. Retention, purpose and no-resale limits are contractual terms, not cryptographic guarantees.</p>
+      </div>
+      <div class="hp-consent hp-lg">
+        <span class="hp-zone__k">Before anything is sent, you see</span>
+        <div class="hp-ci"><i aria-hidden="true">✓</i><span><strong>Purpose</strong> — why the buyer is asking</span></div>
+        <div class="hp-ci"><i aria-hidden="true">✓</i><span><strong>Exact disclosure</strong> — qualifies yes, nothing else</span></div>
+        <div class="hp-ci"><i aria-hidden="true">✓</i><span><strong>Your approval</strong> — a signed consent receipt bound to this claim</span></div>
+        <div class="hp-ci"><i aria-hidden="true">✓</i><span><strong>The reward</strong> — <span data-bind="reward">0.001 TAZ</span> to an address you choose</span></div>
+        <div class="hp-ci"><i aria-hidden="true">✓</i><span><strong>Retention and withdrawal</strong> — <span data-bind="retention-days">90 days</span>, and what withdrawal can't undo</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hp-sec hp-wrap hp-sec--pad-lg" id="faq" aria-labelledby="hp-faq">
+    <h2 id="hp-faq" class="hp-h2 hp-faq-h">Questions, answered plainly</h2>
+    <div class="hp-faq">
+      <details open><summary>Is this a live marketplace?</summary><p>No. It is an interactive prototype built for Zecathon. The merchant, its records and the buyer are synthetic, and everything runs on Zcash testnet.</p></details>
+      <details><summary>Does anyone receive my transactions?</summary><p>Not the verifier and not the buyer. Your browser keeps the rows and the total. The verifier receives the claim package — proof, credential, consent receipt, public inputs and payout address — and the buyer receives the approved answer.</p></details>
+      <details><summary>Am I anonymous?</summary><p>No. The verifier can link claims made from the same statement through the visible credential root, and your network address is visible to the services you contact.</p></details>
+      <details><summary>Will I actually get paid?</summary><p>In this build, payouts are simulated and no Zcash transaction is sent. A manual mode lets the operator pay from their own testnet wallet and report the transaction; the app does not verify it on-chain.</p></details>
+      <details><summary>Can someone cheat by editing records or reusing a claim?</summary><p>The demo includes a security lab that tries exactly that — edited rows with the same total, replaying a claim, and redirecting the payout — and shows each one fail. Edited rows no longer match the merchant's signature, so no proof can be built; the replay and the redirect are rejected by the verifier.</p></details>
+    </div>
+  </section>
+
+  <section class="hp-sec hp-wrap hp-final-sec" aria-labelledby="hp-final">
+    <div class="hp-final hp-lg">
+      <span class="hp-blob hp-blob--v hp-blob--f1"></span>
+      <span class="hp-blob hp-blob--b hp-blob--f2"></span>
+      <div class="hp-final__mark" aria-hidden="true"><div class="vx-halo vx-halo--pulse"></div><div class="vx-mark" data-stage="reward"><img class="vx-mark__img" src="/brand/vb-mark.png" alt="" width="552" height="362"><span class="vx-mark__gloss"></span><span class="vx-mark__fold"></span><span class="vx-mark__veil"></span><span class="vx-mark__flow"></span><span class="vx-mark__sheen"></span></div></div>
+      <h2 id="hp-final" class="hp-h2">See privacy-preserving verification <em>in action.</em></h2>
+      <p class="hp-lead">Explore how a private statement becomes a verified claim, without sending the underlying transaction records to the verifier.</p>
+      <div class="hp-hero__ctas">
+        <a class="hp-btn hp-btn--primary" href="/demo">Explore the demo<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        <a class="hp-btn hp-btn--glass" href="#privacy">Read the privacy model</a>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer class="hp-sec hp-wrap">
+    <div class="hp-foot">
+      <div class="hp-foot__brand">
+        <img src="/brand/vb-wordmark-pearl.png" alt="VeilBounty" width="180" height="35">
+        <p class="hp-small">Verified answers about private records, proved on your device and rewarded through shielded Zcash settlement. A Zecathon prototype.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <a href="#how">How it works</a><a href="#privacy">Privacy</a><a href="/demo">Demo</a>
+      </div>
+      <div>
+        <h3>Project</h3>
+        <a href="#faq">FAQ</a><a href="/demo#history">Privacy audit in the demo</a>
+        <span class="hp-small hp-foot__note">Repository link added when configured</span>
+      </div>
+    </div>
+    <p class="hp-disclaimer">Prototype on Zcash testnet. Synthetic merchant data. Payouts are simulated by default; no real funds move. Not anonymous: the verifier can link claims from one statement, and network-level privacy is not provided.</p>
+  </footer>
+</div>
+<script type="module" src="/src/home/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "v": 1,
+  "title": "September grocery spend check",
+  "buyer": { "name": "Harbor Research Co. (demo buyer)", "domain": "harbor-research.example" },
+  "issuer_id": "mock-grocer-1",
+  "category": "groceries",
+  "period": { "from": "2026-09-01", "to": "2026-09-30" },
+  "predicate": { "min_cents": 20000, "max_cents": 50000 },
+  "disclosure": "qualifies_only",
+  "purpose": "Size the mid-spend grocery segment for a loyalty-card trial. Results are counted, never resold.",
+  "retention_days": 90,
+  "reward_zat": 100000,
+  "reward_display": "0.001 TAZ (testnet ZEC)",
+  "max_participants": 1000,
+  "expires": "2026-11-30"
+}
