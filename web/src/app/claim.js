@@ -546,11 +546,11 @@ function stageVerify() {
 let pollTimer = 0;
 function pollPayout() {
   clearTimeout(pollTimer);
-  if (S.payout?.status !== 'queued' || !S.submit.response?.claim_id) return;
+  if (!['queued', 'sending', 'broadcast'].includes(S.payout?.status) || !S.submit.response?.claim_id) return;
   pollTimer = setTimeout(async () => {
     try {
       const r = await api('GET', `/api/claims/${S.submit.response.claim_id}/payout`, undefined, { purpose: 'Check payout status', carries: 'Nothing (claim id in the path)' });
-      if (r.status === 200 && r.body) { S.payout = { ...S.payout, status: r.body.status, txid: r.body.txid, detail: r.body.detail }; changed('payout'); if (S.stage === STAGE.reward) rerender(); }
+      if (r.status === 200 && r.body) { S.payout = { ...S.payout, status: r.body.status, txid: r.body.txid, confirmations: r.body.confirmations, detail: r.body.detail }; changed('payout'); if (S.stage === STAGE.reward) rerender(); }
     } catch { /* keep polling */ }
     pollPayout();
   }, 5000);
@@ -566,13 +566,32 @@ function payoutWords(pay) {
         ['ok', 'flask', 'Payout adapter: simulated', `${reward} recorded for ${addr}.`, ['info', 'Simulated']],
         ['none', 'send', 'Zcash transaction', 'None sent. A transaction ID appears here only after a real payout is reported.', ['out', 'Not sent']],
       ] };
-    case 'queued': return {
-      tag: ['warn', 'Manual payout', 'clock'], word: 'waiting for operator',
-      msg: msg('info', 'Waiting for the operator', 'The operator sends the reward from their own testnet wallet and records the transaction id. This page checks every few seconds.', { testid: 'payout-status' }),
+    case 'queued': {
+      const automated = S.info.payout_adapter?.name === 'zecd';
+      return {
+      tag: ['warn', automated ? 'Automated payout queued' : 'Manual payout', 'clock'], word: automated ? 'waiting for keeper' : 'waiting for operator',
+      msg: msg('info', automated ? 'Waiting for the payment keeper' : 'Waiting for the operator', automated ? 'The keeper will send the reward from the funded testnet wallet. This page checks every few seconds.' : 'The operator sends the reward from their own testnet wallet and records the transaction id. This page checks every few seconds.', { testid: 'payout-status' }),
       steps: [
-        ['active', 'clock', 'Payout adapter: manual', `${reward} queued for ${addr}.`, ['warn', 'Queued']],
+        ['active', 'clock', `Payout adapter: ${automated ? 'zecd' : 'manual'}`, `${reward} queued for ${addr}.`, ['warn', 'Queued']],
         ['none', 'send', 'Zcash transaction', 'Not reported yet.', ['out', 'Waiting']],
       ] };
+    }
+    case 'sending': return {
+      tag: ['warn', 'Payment in progress', 'clock'], word: 'sending',
+      msg: msg('info', 'Payment in progress', 'The keeper is submitting your testnet payment.', { testid: 'payout-status' }),
+      steps: [['active', 'clock', 'Payout adapter: zecd', `${reward} is being sent to ${addr}.`, ['warn', 'Sending']], ['none', 'send', 'Zcash transaction', 'Waiting for wallet response.', ['out', 'Pending']]] };
+    case 'broadcast': return {
+      tag: ['warn', 'Payment sent', 'send'], word: 'awaiting confirmation',
+      msg: msg('info', 'Transaction broadcast', `Your transaction is on the network with ${pay.confirmations ?? 0} confirmation(s).`, { testid: 'payout-status' }),
+      steps: [['ok', 'check', 'Payout adapter: zecd', `${reward} sent to the address bound in your claim.`, ['ok', 'Sent']], ['active', 'send', 'Zcash transaction', h('span', 'Awaiting confirmation · ', h('span.vx-mono.txid', pay.txid ?? '')), ['warn', `${pay.confirmations ?? 0} confirmations`]]] };
+    case 'confirmed': return {
+      tag: ['ok', 'Payment confirmed', 'check'], word: 'confirmed',
+      msg: msg('success', 'Payment confirmed', `The wallet reports ${pay.confirmations ?? 0} confirmation(s) for your testnet payment.`, { testid: 'payout-status' }),
+      steps: [['ok', 'check', 'Payout adapter: zecd', `${reward} sent to the address bound in your claim.`, ['ok', 'Sent']], ['ok', 'send', 'Zcash transaction', h('span', 'Confirmed · ', h('span.vx-mono.txid', pay.txid ?? '')), ['ok', 'Confirmed']]] };
+    case 'needs_reconciliation': return {
+      tag: ['warn', 'Payment needs review', 'clock'], word: 'needs review',
+      msg: msg('warning', 'Payment needs operator review', 'The wallet response was interrupted, so the payment may have been sent. The operator must check the wallet before retrying.', { testid: 'payout-status' }),
+      steps: [['none', 'clock', 'Payout adapter: zecd', 'Operator review required; automatic retries are disabled.', ['warn', 'Review']], ['none', 'send', 'Zcash transaction', 'Check the wallet for the payment before taking action.', ['out', 'Unknown']]] };
     case 'operator_reported': return {
       tag: ['warn', 'Operator-reported', 'send'], word: 'operator-reported',
       msg: msg('warning', 'Operator reports a transaction', 'This app has not verified it on-chain. Check your wallet to confirm the reward arrived.', { testid: 'payout-status' }),

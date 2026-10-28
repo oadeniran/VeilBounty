@@ -10,7 +10,7 @@ Zecathon prototype. Synthetic data only.
 2. **Consent.** The participant reviews the campaign terms and approves; a consent receipt is signed binding the manifest hash, credential root, payout-address hash and nullifier.
 3. **Prove locally.** In a Web Worker, the circuit proves the records reproduce the signed root, the matching rows sum to within the campaign range, and the nullifier derives from the holder secret and campaign.
 4. **Verify.** The verifier checks the pinned issuer signature, recomputes every public input (including the recipient hash from the actual payout address), checks consent, verifies the UltraHonk proof, and atomically records the nullifier.
-5. **Pay.** The payout adapter runs: `simulated` by default, or `manual` (operator sends from their own wallet and records the txid).
+5. **Pay.** The payout adapter runs: `simulated` by default, `manual` (operator sends and reports the txid), or `zecd` (the keeper sends from a funded testnet wallet and tracks confirmations).
 
 What crosses the network: the holder commitment (to the issuer) and the six-field claim (to the verifier). Never: records, totals, the blind or the holder secret. This is asserted by `npm run test:browser`.
 
@@ -31,6 +31,8 @@ npm start                           # http://127.0.0.1:8787 (homepage) and /demo
 ```
 
 Configuration is by environment variable; see `.env.example`.
+
+For the short path, `npm run init` runs the one-time setup and builds the web app. Copy `.env.example` to `.env`, replace the wallet RPC password, then run `npm run start:all`. It starts zecd with the configured testnet backend (or reuses a running wallet), verifies it is on testnet, then starts the web app and keeper. Press Ctrl+C to stop processes started by the launcher. `.env` is ignored by git.
 
 **Windows (PowerShell):** run `npm ci` before `npm run setup`. Nargo has no native Windows build, so use `npm run build:web` instead of `npm run build` (the compiled circuit `circuits/claim/target/claim.json` is committed; recompile only under WSL). Set variables with `$env:PAYOUT_ADAPTER="manual"; npm start`. Use the git bundle or a clone rather than the zip: one Node test checks what git tracks. Reset the demo by deleting `.data/veilbounty.sqlite*`.
 
@@ -54,26 +56,9 @@ Run the test suite against MongoDB with `TEST_MONGODB_URI=<uri> npm test` (each 
 
 ## Deploy to Heroku
 
-The repo is Heroku-ready: `Procfile` starts the server, `heroku-postbuild` runs `npm run setup && npm run build:web` (downloads the checksum-pinned CRS at build time; Nargo is not needed because the compiled circuit is committed), and `engines` pins Node 24. On Heroku (`DYNO` is set) the server listens on `0.0.0.0` and rate-limits by the client address the router appends to `X-Forwarded-For`.
+The app defines separate `web` and `worker` Procfile processes. Use MongoDB Atlas as the shared store because Heroku dynos have separate ephemeral filesystems. Genuine payouts also require a separately hosted, funded zecd wallet reachable by the worker over HTTPS. The full setup, config variables, deployment, scaling, verification and recovery steps are in [the deployment runbook](docs/DEPLOYMENT.md).
 
-Heroku's disk is wiped on every deploy and at least daily, so use MongoDB there (MongoDB Atlas; the free M0 cluster is enough):
-
-1. In Atlas: create a cluster, a database user, and under **Network Access** allow `0.0.0.0/0` (Heroku dynos have no fixed IP). Copy the `mongodb+srv://…` connection string.
-2. Deploy:
-
-```bash
-heroku create <app-name>
-heroku config:set MONGODB_URI="mongodb+srv://<user>:<password>@<cluster>/veilbounty?retryWrites=true&w=majority"
-git push heroku ui-redesign:main
-heroku open            # homepage; the demo is at /demo
-heroku logs --tail     # startup line shows "store: MongoDB (veilbounty)"
-```
-
-Notes:
-- **Manual payouts** work against the hosted app: run the operator CLI on your laptop with the same `MONGODB_URI` (PowerShell: `$env:MONGODB_URI="…"; node scripts/operator.js list`). Start the dyno with `heroku config:set PAYOUT_ADAPTER=manual` for that mode.
-- **New issuer key per deploy.** `npm run setup` generates the mock issuer key at build time, so statements issued before a deploy stop verifying after it. Restarts keep the same key.
-- **Without `MONGODB_URI`** the app still runs on Heroku with SQLite, but claims, nullifiers and the buyer count reset on every deploy and restart.
-- **Privacy.** Atlas holds only nullifiers, claim status and pending payout addresses. Heroku's router logs client IP addresses and request paths (never bodies), consistent with "no network-level privacy" above.
+The Heroku build uses `heroku-postbuild` to run `npm run setup` and `npm run build:web`; Node 24 is specified in `package.json`. A build generates a new mock issuer key, so statements from a previous deploy stop verifying after redeployment.
 
 ## Interface
 
@@ -94,6 +79,10 @@ PAYOUT_ADAPTER=manual npm start
 node scripts/operator.js list
 node scripts/operator.js report <claim_id> <txid>   # only for a transaction you actually sent
 ```
+
+## Automated testnet keeper
+
+The web app queues verified claims. The keeper sends from zecd, stores the txid, and tracks confirmations. See [the deployment runbook](docs/DEPLOYMENT.md) for the Heroku topology, required config vars, local startup, verification, and payout recovery instructions. A public lightwalletd endpoint is the wallet's chain backend; the keeper connects to zecd's wallet RPC.
 
 ## Layout
 
