@@ -9,8 +9,9 @@
 //   recordAcceptedClaim({ id, campaignId, nullifier, maxParticipants, payout: { adapter, amountZat, address } })
 //       -> null on success, 'already_claimed' (same campaign + nullifier) or 'campaign_full'. Atomic in both backends.
 //   nullifierUsed(campaignId, nullifier) -> boolean
-//   updatePayout(claimId, { status, txid?, detail?, clearAddress? })   txid is only ever set, never cleared
-//   getPayout(claimId) -> { claim_id, adapter, status, amount_zat, txid, detail, updated_at } | null   (never the address)
+//   updatePayout(claimId, { status, txid?, confirmations?, detail?, clearAddress? })   txid is only ever set, never cleared
+//   claimNextPayout(adapter) -> atomically claimed queue row; getBroadcastPayouts(adapter) -> txids to monitor
+//   getPayout(claimId) -> status, amount, txid, confirmations, detail (never the address)
 //   payoutAddress(claimId) -> string | null          operator CLI and tests only
 //   queuedPayouts() -> [{ claim_id, amount_zat, address }]   operator CLI only
 //   campaignSummary(campaignId) -> { accepted, payouts: { [status]: count } }
@@ -29,6 +30,7 @@ export function openSqlite(path) {
   const db = new DatabaseSync(path);
   db.exec(`
     PRAGMA journal_mode = WAL;
+    PRAGMA busy_timeout = 10000;
     CREATE TABLE IF NOT EXISTS claims (
       id TEXT PRIMARY KEY,
       campaign_id TEXT NOT NULL,
@@ -43,9 +45,11 @@ export function openSqlite(path) {
       amount_zat INTEGER NOT NULL,
       address TEXT,                  -- cleared once the adapter finishes
       txid TEXT,                     -- only ever set from a real wallet or an operator report
+      confirmations INTEGER NOT NULL DEFAULT 0,
       detail TEXT,
       updated_at INTEGER NOT NULL
     );`);
+  if (!db.prepare('PRAGMA table_info(payouts)').all().some((c) => c.name === 'confirmations')) db.exec('ALTER TABLE payouts ADD COLUMN confirmations INTEGER NOT NULL DEFAULT 0');
   return {
     kind: 'sqlite',
     label: path === ':memory:' ? 'SQLite (in memory)' : 'SQLite file',
@@ -71,18 +75,36 @@ export function openSqlite(path) {
     async nullifierUsed(campaignId, nullifier) {
       return !!db.prepare('SELECT 1 FROM claims WHERE campaign_id = ? AND nullifier = ?').get(campaignId, nullifier);
     },
-    async updatePayout(claimId, { status, txid = null, detail = null, clearAddress = false }) {
-      db.prepare(`UPDATE payouts SET status = ?, txid = COALESCE(?, txid), detail = ?, updated_at = ?${clearAddress ? ', address = NULL' : ''} WHERE claim_id = ?`)
-        .run(status, txid, detail, Date.now(), claimId);
+    async updatePayout(claimId, { status, txid = null, confirmations = null, detail = null, clearAddress = false }) {
+      db.prepare(`UPDATE payouts SET status = ?, txid = COALESCE(?, txid), confirmations = COALESCE(?, confirmations), detail = ?, updated_at = ?${clearAddress ? ', address = NULL' : ''} WHERE claim_id = ?`)
+        .run(status, txid, confirmations, detail, Date.now(), claimId);
     },
     async getPayout(claimId) {
-      return db.prepare('SELECT claim_id, adapter, status, amount_zat, txid, detail, updated_at FROM payouts WHERE claim_id = ?').get(claimId) ?? null;
+      return db.prepare('SELECT claim_id, adapter, status, amount_zat, txid, confirmations, detail, updated_at FROM payouts WHERE claim_id = ?').get(claimId) ?? null;
     },
     async payoutAddress(claimId) {
       return db.prepare('SELECT address FROM payouts WHERE claim_id = ?').get(claimId)?.address ?? null;
     },
     async queuedPayouts() {
       return db.prepare("SELECT claim_id, amount_zat, address FROM payouts WHERE status = 'queued' ORDER BY updated_at").all();
+    },
+    async claimNextPayout(adapter = 'zecd') {
+      db.exec('BEGIN IMMEDIATE');
+      try {
+        const row = db.prepare("SELECT claim_id, amount_zat, address FROM payouts WHERE adapter = ? AND status = 'queued' ORDER BY updated_at LIMIT 1").get(adapter);
+        if (!row) { db.exec('COMMIT'); return null; }
+        const changed = db.prepare("UPDATE payouts SET status = 'sending', detail = 'Keeper started wallet send; reconcile if interrupted.', updated_at = ? WHERE claim_id = ? AND status = 'queued'").run(Date.now(), row.claim_id).changes;
+        db.exec('COMMIT');
+        return changed ? row : null;
+      } catch (e) { try { db.exec('ROLLBACK'); } catch {} throw e; }
+    },
+    async reconcileStaleSends(adapter = 'zecd', ageMs = 300_000) {
+      const result = db.prepare("UPDATE payouts SET status = 'needs_reconciliation', detail = 'Keeper stopped during send; inspect wallet before retrying.', updated_at = ? WHERE adapter = ? AND status = 'sending' AND updated_at < ?")
+        .run(Date.now(), adapter, Date.now() - ageMs);
+      return result.changes;
+    },
+    async getBroadcastPayouts(adapter = 'zecd') {
+      return db.prepare("SELECT claim_id, txid FROM payouts WHERE adapter = ? AND status = 'broadcast' AND txid IS NOT NULL").all(adapter);
     },
     async campaignSummary(campaignId) {
       const accepted = db.prepare('SELECT COUNT(*) AS n FROM claims WHERE campaign_id = ?').get(campaignId).n;
@@ -119,7 +141,7 @@ export async function openMongo(uri, dbName) {
   await claims.createIndex({ 'payout.status': 1, 'payout.updated_at': 1 }, { name: 'payout_queue' });
 
   const row = (d) => (d ? { claim_id: d._id, adapter: d.payout.adapter, status: d.payout.status, amount_zat: d.payout.amount_zat,
-    txid: d.payout.txid ?? null, detail: d.payout.detail ?? null, updated_at: d.payout.updated_at } : null);
+    txid: d.payout.txid ?? null, confirmations: d.payout.confirmations ?? 0, detail: d.payout.detail ?? null, updated_at: d.payout.updated_at } : null);
 
   return {
     kind: 'mongodb',
@@ -128,7 +150,7 @@ export async function openMongo(uri, dbName) {
       const now = Date.now();
       try {
         await claims.insertOne({ _id: id, campaign_id: campaignId, nullifier, accepted_at: now,
-          payout: { adapter: payout.adapter, status: 'queued', amount_zat: payout.amountZat, address: payout.address, txid: null, detail: null, updated_at: now } });
+          payout: { adapter: payout.adapter, status: 'queued', amount_zat: payout.amountZat, address: payout.address, txid: null, confirmations: 0, detail: null, updated_at: now } });
       } catch (e) {
         if (e.code === DUPLICATE_KEY) return 'already_claimed';
         throw e;
@@ -146,9 +168,10 @@ export async function openMongo(uri, dbName) {
     async nullifierUsed(campaignId, nullifier) {
       return !!(await claims.findOne({ campaign_id: campaignId, nullifier }, { projection: { _id: 1 } }));
     },
-    async updatePayout(claimId, { status, txid = null, detail = null, clearAddress = false }) {
+    async updatePayout(claimId, { status, txid = null, confirmations = null, detail = null, clearAddress = false }) {
       const $set = { 'payout.status': status, 'payout.detail': detail, 'payout.updated_at': Date.now() };
       if (txid != null) $set['payout.txid'] = txid;
+      if (confirmations != null) $set['payout.confirmations'] = confirmations;
       await claims.updateOne({ _id: claimId }, clearAddress ? { $set, $unset: { 'payout.address': '' } } : { $set });
     },
     async getPayout(claimId) {
@@ -160,6 +183,26 @@ export async function openMongo(uri, dbName) {
     async queuedPayouts() {
       const docs = await claims.find({ 'payout.status': 'queued' }, { projection: { 'payout.amount_zat': 1, 'payout.address': 1 } }).sort({ 'payout.updated_at': 1 }).toArray();
       return docs.map((d) => ({ claim_id: d._id, amount_zat: d.payout.amount_zat, address: d.payout.address ?? null }));
+    },
+    async claimNextPayout(adapter = 'zecd') {
+      const now = Date.now();
+      const d = await claims.findOneAndUpdate(
+        { 'payout.adapter': adapter, 'payout.status': 'queued' },
+        { $set: { 'payout.status': 'sending', 'payout.detail': 'Keeper started wallet send; reconcile if interrupted.', 'payout.updated_at': now } },
+        { sort: { 'payout.updated_at': 1 }, returnDocument: 'after' },
+      );
+      return d ? { claim_id: d._id, amount_zat: d.payout.amount_zat, address: d.payout.address ?? null } : null;
+    },
+    async reconcileStaleSends(adapter = 'zecd', ageMs = 300_000) {
+      const r = await claims.updateMany(
+        { 'payout.adapter': adapter, 'payout.status': 'sending', 'payout.updated_at': { $lt: Date.now() - ageMs } },
+        { $set: { 'payout.status': 'needs_reconciliation', 'payout.detail': 'Keeper stopped during send; inspect wallet before retrying.', 'payout.updated_at': Date.now() } },
+      );
+      return r.modifiedCount;
+    },
+    async getBroadcastPayouts(adapter = 'zecd') {
+      const docs = await claims.find({ 'payout.adapter': adapter, 'payout.status': 'broadcast', 'payout.txid': { $type: 'string' } }, { projection: { 'payout.txid': 1 } }).toArray();
+      return docs.map((d) => ({ claim_id: d._id, txid: d.payout.txid }));
     },
     async campaignSummary(campaignId) {
       const accepted = await claims.countDocuments({ campaign_id: campaignId });
